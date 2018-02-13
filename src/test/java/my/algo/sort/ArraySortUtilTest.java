@@ -84,7 +84,29 @@ public class ArraySortUtilTest {
         assertArrayEquals(expectedResult, testData);
 	}
 	
-	//*************************************************
+	//**************** QUICK SORT *********************************
+	@Test
+	public void quickSortTest1() {
+		int[] testData = {1, 2, 3};
+		ArraySortUtil.quickSort(testData);
+		int [] expectedResult = {1, 2, 3};
+		assertArrayEquals(expectedResult, testData);
+	}
 
+	@Test
+	public void quickSortTest2() {
+		int[] testData = {543, 89, 0 , -3, 65, 78, 0, 1};
+		ArraySortUtil.quickSort(testData);
+		int [] expectedResult = {-3, 0, 0, 1, 65, 78, 89, 543};
+		assertArrayEquals(expectedResult, testData);
+	}
+
+	@Test
+	public void quickSortTest3() {
+		int[] testData = {3, 3, 2, 2, 1, 1};
+		ArraySortUtil.quickSort(testData);
+		int [] expectedResult = {1, 1, 2, 2, 3, 3};
+		assertArrayEquals(expectedResult, testData);
+	}
 
 }

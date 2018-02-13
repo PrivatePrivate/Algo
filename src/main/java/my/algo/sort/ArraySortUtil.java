@@ -49,6 +49,31 @@ public class ArraySortUtil {
 
 	}
 
+	public static void quickSort(int[] array) {
+		quickSort(array, 0, array.length - 1);
+	}
+
+	private static void quickSort(int array[], int start, int end) {
+
+		if(end <= start) {
+			return;
+		}
+
+		int pivotValue = array[end];
+		int helperIndex = start - 1;
+		for(int i = start; i <= end; i++) {
+			if(array[i] < pivotValue) {
+				helperIndex++;
+				swap(array, helperIndex, i);
+			}
+		}
+		helperIndex++;
+		swap(array, helperIndex, end);
+		quickSort(array, start, helperIndex - 1);
+		quickSort(array, helperIndex + 1, end);
+
+	}
+
 	private static void swap(int [] array, int i, int k) {
 	    int bufor = array[i];
 	    array[i] = array[k];
