@@ -148,5 +148,13 @@ public class ArraySortUtil {
 	}
 
 
+    public static void mergeSort(int[] array) {
 
+	    if(array == null || array.length == 1) {
+	        return;
+        }
+
+
+
+    }
 }

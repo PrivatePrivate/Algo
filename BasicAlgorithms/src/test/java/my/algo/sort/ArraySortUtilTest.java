@@ -5,8 +5,8 @@ import static org.junit.Assert.assertArrayEquals;
 import org.junit.Test;
 
 public class ArraySortUtilTest {
-	
-	
+
+
 	//********************* BUBBLE SORT *************************************
 	@Test
 	public void bubbleSortTest1() {
@@ -23,7 +23,7 @@ public class ArraySortUtilTest {
 		int [] expectedResult = {-3, 0, 0, 1, 65, 78, 89, 543};
         assertArrayEquals(expectedResult, testData);
 	}
-	
+
 	@Test
 	public void bubbleSortTest3() {
 		int[] testData = {3, 3, 2, 2, 1, 1};
@@ -55,9 +55,9 @@ public class ArraySortUtilTest {
         int [] expectedResult = null;
         assertArrayEquals(expectedResult, testData);
     }
-	
+
 	//************************ SELECTION SORT **************************************
-	
+
 	@Test
 	public void selectionSortTest1() {
 		int[] testData = {1, 2, 3};
@@ -73,7 +73,7 @@ public class ArraySortUtilTest {
 		int [] expectedResult = {-3, 0, 0, 1, 65, 78, 89, 543};
         assertArrayEquals(expectedResult, testData);
 	}
-	
+
 	@Test
 	public void selectionSortTest3() {
 		int[] testData = {3, 3, 2, 2, 1, 1};
@@ -105,9 +105,9 @@ public class ArraySortUtilTest {
         int [] expectedResult = null;
         assertArrayEquals(expectedResult, testData);
     }
-	
+
 	//*********************** INSERTION SORT *******************************************
-	
+
 	@Test
 	public void insertionSortTest1() {
 		int[] testData = {1, 2, 3};
@@ -123,7 +123,7 @@ public class ArraySortUtilTest {
 		int [] expectedResult = {-3, 0, 0, 1, 65, 78, 89, 543};
         assertArrayEquals(expectedResult, testData);
 	}
-	
+
 	@Test
 	public void insertionSortTest3() {
 		int[] testData = {3, 3, 2, 2, 1, 1};
@@ -155,7 +155,7 @@ public class ArraySortUtilTest {
         int [] expectedResult = null;
         assertArrayEquals(expectedResult, testData);
     }
-	
+
 	//**************** QUICK SORT *********************************
 	@Test
 	public void quickSortTest1() {
@@ -250,6 +250,55 @@ public class ArraySortUtilTest {
     public void heapSortNullArrayTest() {
         int[] testData = null;
         ArraySortUtil.heapSort(testData);
+        int [] expectedResult = null;
+        assertArrayEquals(expectedResult, testData);
+    }
+
+    //**************** MERGE SORT *********************************
+    @Test
+    public void mergeSortTest1() {
+        int[] testData = {1, 2, 3};
+        ArraySortUtil.mergeSort(testData);
+        int [] expectedResult = {1, 2, 3};
+        assertArrayEquals(expectedResult, testData);
+    }
+
+    @Test
+    public void mergeSortTest2() {
+        int[] testData = {543, 89, 0 , -3, 65, 78, 0, 1};
+        ArraySortUtil.mergeSort(testData);
+        int [] expectedResult = {-3, 0, 0, 1, 65, 78, 89, 543};
+        assertArrayEquals(expectedResult, testData);
+    }
+
+    @Test
+    public void mergeSortTest3() {
+        int[] testData = {3, 3, 2, 2, 1, 1};
+        ArraySortUtil.mergeSort(testData);
+        int [] expectedResult = {1, 1, 2, 2, 3, 3};
+        assertArrayEquals(expectedResult, testData);
+    }
+
+    @Test
+    public void mergeSortOneElementArrayTest() {
+        int[] testData = {5};
+        ArraySortUtil.mergeSort(testData);
+        int [] expectedResult = {5};
+        assertArrayEquals(expectedResult, testData);
+    }
+
+    @Test
+    public void mergeSortEmptyArrayTest() {
+        int[] testData = {};
+        ArraySortUtil.mergeSort(testData);
+        int [] expectedResult = {};
+        assertArrayEquals(expectedResult, testData);
+    }
+
+    @Test
+    public void mergeSortNullArrayTest() {
+        int[] testData = null;
+        ArraySortUtil.mergeSort(testData);
         int [] expectedResult = null;
         assertArrayEquals(expectedResult, testData);
     }
