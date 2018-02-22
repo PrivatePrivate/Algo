@@ -149,12 +149,57 @@ public class ArraySortUtil {
 
 
     public static void mergeSort(int[] array) {
-
-	    if(array == null || array.length == 1) {
-	        return;
-        }
-
-
-
+		if(array == null || array.length <= 1) {
+			return;
+		}
+		mergeSort(array, 0, array.length - 1);
     }
+
+    private static void mergeSort(int [] array, int startIndex, int endIndex) {
+
+		if(endIndex <= startIndex) {
+			return;
+		}
+
+		int middleIndex = startIndex + (endIndex - startIndex) / 2;
+
+		mergeSort(array, startIndex, middleIndex);
+		mergeSort(array, 1 + middleIndex, endIndex);
+
+		int [] result = new int [endIndex - startIndex + 1];
+
+		merge(array, startIndex, 1 + middleIndex, endIndex, result);
+
+		for(int resInd = 0, i = startIndex; i <= endIndex; i++, resInd++) {
+			array[i] = result[resInd];
+		}
+
+	}
+	 private static void merge(int [] array, int startIndex, int middleIndex, int endIndex, int [] result) {
+
+		int startMove = startIndex;
+		int midMove = middleIndex;
+		int resultIndex = 0;
+		while(startMove < middleIndex && midMove <= endIndex) {
+			if(array[startMove] <= array[midMove]) {
+				result[resultIndex] = array[startMove];
+				startMove++;
+			} else {
+				result[resultIndex] = array[midMove];
+				midMove++;
+			}
+			resultIndex++;
+		}
+
+		for(; startMove < middleIndex; startMove++) {
+			result[resultIndex] = array[startMove];
+			resultIndex++;
+		}
+
+		 for(; midMove <= endIndex; midMove++) {
+			 result[resultIndex] = array[midMove];
+			 resultIndex++;
+		 }
+	 }
+
 }
