@@ -303,4 +303,53 @@ public class ArraySortUtilTest {
         assertArrayEquals(expectedResult, testData);
     }
 
+    //**************** MERGE SORT *********************************
+    @Test
+    public void countSortTest1() {
+        int[] testData = {1, 2, 3};
+        ArraySortUtil.countSort(testData, 3);
+        int [] expectedResult = {1, 2, 3};
+        assertArrayEquals(expectedResult, testData);
+    }
+
+    @Test
+    public void countSorttTest2() {
+        int[] testData = {2, 3, 1, 1, 1, 0, 0, 1, 2, 1, 3};
+        ArraySortUtil.countSort(testData, 3);
+        int [] expectedResult = {0, 0, 1, 1, 1, 1, 1, 2, 2, 3, 3};
+        assertArrayEquals(expectedResult, testData);
+    }
+
+    @Test
+    public void countSortTest3() {
+        int[] testData = {3, 3, 2, 2, 1, 1};
+        ArraySortUtil.countSort(testData, 3);
+        int [] expectedResult = {1, 1, 2, 2, 3, 3};
+        assertArrayEquals(expectedResult, testData);
+    }
+
+    @Test
+    public void countSortOneElementArrayTest() {
+        int[] testData = {5};
+        ArraySortUtil.countSort(testData, 5);
+        int [] expectedResult = {5};
+        assertArrayEquals(expectedResult, testData);
+    }
+
+    @Test
+    public void countSortEmptyArrayTest() {
+        int[] testData = {};
+        ArraySortUtil.countSort(testData, 0);
+        int [] expectedResult = {};
+        assertArrayEquals(expectedResult, testData);
+    }
+
+    @Test
+    public void countSortNullArrayTest() {
+        int[] testData = null;
+        ArraySortUtil.countSort(testData, 0);
+        int [] expectedResult = null;
+        assertArrayEquals(expectedResult, testData);
+    }
+
 }
