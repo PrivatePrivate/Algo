@@ -313,7 +313,7 @@ public class ArraySortUtilTest {
     }
 
     @Test
-    public void countSorttTest2() {
+    public void countSortTest2() {
         int[] testData = {2, 3, 1, 1, 1, 0, 0, 1, 2, 1, 3};
         ArraySortUtil.countSort(testData, 3);
         int [] expectedResult = {0, 0, 1, 1, 1, 1, 1, 2, 2, 3, 3};

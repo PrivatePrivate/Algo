@@ -202,6 +202,31 @@ public class ArraySortUtil {
 		 }
 	 }
 
-    public static void countSort(int[] testData, int maxValue) {
+    public static void countSort(int[] array, int maxValue) {
+
+	    if(array == null || array.length <= 1) {
+	        return;
+        }
+
+	    int [] result = new int[array.length];
+	    int [] indexArray = new int[maxValue + 1]; //we assume that 0 can be involved
+
+        for(int i = 0; i < array.length; i++) {
+            indexArray[array[i]]++;
+        }
+
+        for(int i = 1; i < indexArray.length; i++) {
+            indexArray[i] += indexArray[i - 1];
+        }
+
+        for(int i = 0; i < array.length; i++) {
+            indexArray[array[i]]--;
+            result[indexArray[array[i]]] = array[i];
+        }
+
+        for(int i = 0; i < array.length; i++) {
+            array[i] = result[i];
+        }
+
     }
 }
